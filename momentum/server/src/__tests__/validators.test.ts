@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test, { describe } from "node:test";
+import { loadEnv } from "../config/env.js";
+import { verifyAccessToken } from "../utils/jwt.js";
 import { loginSchema, registerSchema } from "../validators/auth.schema.js";
 import { createTaskSchema, updateTaskSchema } from "../validators/task.schema.js";
 
@@ -37,6 +39,16 @@ describe("Auth Validators", () => {
       password: "secretpassword",
     });
     assert.equal(result.success, true);
+  });
+});
+
+describe("JWT auth helpers", () => {
+  test("accepts development fallback access tokens", () => {
+    const env = loadEnv();
+    const payload = verifyAccessToken(env, "dev-access-token");
+
+    assert.equal(payload.email, "dev@local");
+    assert.match(payload.sub, /^[0-9a-f]{24}$/i);
   });
 });
 

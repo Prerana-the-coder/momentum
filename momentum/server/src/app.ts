@@ -10,10 +10,26 @@ import { createTaskRouter } from "./routes/task.routes.js";
 
 export function createApp(env: Env) {
   const app = express();
+  const allowedOrigins = env.CLIENT_URL
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
 
   app.use(
     cors({
-      origin: env.CLIENT_URL,
+      origin: (origin, callback) => {
+        if (!origin) {
+          callback(null, true);
+          return;
+        }
+
+        const isAllowed =
+          allowedOrigins.includes(origin) ||
+          /^https?:\/\/localhost(?::\d+)?$/.test(origin) ||
+          /^https?:\/\/127\.0\.0\.1(?::\d+)?$/.test(origin);
+
+        callback(null, isAllowed);
+      },
       credentials: true,
     }),
   );
