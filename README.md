@@ -58,6 +58,7 @@ npm test
 
 ### Server
 
+
 - `npm run dev` — run the server in watch mode with `tsx`
 - `npm run build` — compile TypeScript to `dist/`
 - `npm run test` — run unit tests in `src/__tests__/`
