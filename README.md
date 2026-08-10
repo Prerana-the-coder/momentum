@@ -31,6 +31,7 @@ This runs both the client and server concurrently:
 
 - `npm run dev:client` — starts the Vite development server for the frontend
 - `npm run dev:server` — starts the TypeScript Express backend with `tsx watch`
+- 
 
 ## Build
 
