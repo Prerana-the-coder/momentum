@@ -70,5 +70,6 @@ npm test
 
 ## Notes
 
+
 - The backend expects environment variables for configuration (e.g. database URL, JWT secret).
 - For a local dev environment, check `momentum/server/src/config/env.ts` and `momentum/server/src/config/db.ts`.
