@@ -64,6 +64,7 @@ npm test
 - `npm run dev` — run Vite development server
 - `npm run build` — compile TypeScript and build the production bundle
 - `npm run preview` — preview the built client
+- 
 
 ### Server
 
