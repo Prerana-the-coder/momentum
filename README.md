@@ -13,6 +13,7 @@ This workspace contains the `momentum`, a productivity application with a React 
   - `client/` — React app built with Vite, TypeScript, Tailwind, and React Router.
   - `server/` — Express API server using TypeScript, MongoDB/Mongoose, JWT auth, and validation with Zod.
 - `Personal portfolio website.html` — standalone HTML file at the workspace root.
+- 
 
 ## Requirements
 
